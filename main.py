@@ -21,16 +21,18 @@ def vraag1b(Q_dot_out=50.0):
 
 
 def vraag1e(p1=120, T2=5):
-    p2 = PropsSI("P", "T", T2 + 273.15, "Q", 1, "CO2") / 100_000  # kPa to bar
+    p2 = PropsSI("P", "T", T2 + 273.15, "Q", 1, "CO2") / 1e5  # kPa to bar
     return p1 / p2
 
 
-def vraag1g(T1=130, T2=5):
-    h2 = PropsSI("S", "T", T2 + 273.15, "Q", 1, "CO2")
-    print(h2)
+def vraag1g(T1=5, T2=130):
     h1 = PropsSI("H", "T", T1 + 273.15, "Q", 1, "CO2")
-    print(h1)
-    return
+    s1 = PropsSI("S", "T", T1 + 273.15, "Q", 1, "CO2")
+    p2 = PropsSI("P", "T", T1 + 273.15, "Q", 1, "CO2")
+    h2 = PropsSI("H", "T", T2 + 273.15, "P", p2, "CO2")
+    s2_s = s1
+    h2_s = PropsSI("H", "S", s2_s, "P", p2, "CO2")
+    return (h2_s - h1) / (h2 - h1)
 
 
 p("1b", vraag1b())
