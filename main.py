@@ -20,14 +20,14 @@ def vraag1b(Q_dot_out=50.0):
     return W_out
 
 
-def vraag1e(p1=120, T4=5):
-    p4 = PropsSI("P", "T", T4 + 273.15, "Q", 1, "CO2") / 100_000  # kPa to bar
-    return p1 / p4
+def vraag1e(p1=120, T2=5):
+    p2 = PropsSI("P", "T", T2 + 273.15, "Q", 1, "CO2") / 100_000  # kPa to bar
+    return p1 / p2
 
 
-def vraag1g(T1=130, T4=5):
-    h4 = PropsSI("H", "T", T4 + 273.15, "Q", 1, "CO2")
-    print(h4)
+def vraag1g(T1=130, T2=5):
+    h2 = PropsSI("S", "T", T2 + 273.15, "Q", 1, "CO2")
+    print(h2)
     h1 = PropsSI("H", "T", T1 + 273.15, "Q", 1, "CO2")
     print(h1)
     return
