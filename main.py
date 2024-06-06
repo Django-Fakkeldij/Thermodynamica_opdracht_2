@@ -41,6 +41,14 @@ def vraag1h(T2=130, T3=35, p2=120 * 1e5, Q_dot_out=-50 * 1e6):
     return -Q_dot_out / (h2 - h3)
 
 
+def vraag1i(T2=130, p2=120 * 1e5, T1=5):
+    h1 = PropsSI("H", "T", T1 + 273.15, "Q", 1, "CO2")
+    h2 = PropsSI("H", "T", T2 + 273.15, "P", p2, "CO2")
+    m_dot = vraag1h()
+
+    return (-m_dot * (h2 - h1)) * 1e-6
+
+
 p("1b", vraag1b())
 p("1c", 330)
 p("1d", "D")
@@ -48,3 +56,4 @@ p("1e", vraag1e())
 p("1f", "C")
 p("1g", vraag1g())
 p("1h", vraag1h())
+p("1i", vraag1i())
