@@ -25,14 +25,13 @@ def vraag1e(p1=120, T2=5):
     return p1 / p2
 
 
-def vraag1g(T1=5, T2=130):
+def vraag1g(T1=5, T2=130, p2=120 * 1e5):
     h1 = PropsSI("H", "T", T1 + 273.15, "Q", 1, "CO2")
     s1 = PropsSI("S", "T", T1 + 273.15, "Q", 1, "CO2")
-    p2 = PropsSI("P", "T", T1 + 273.15, "Q", 1, "CO2")
     h2 = PropsSI("H", "T", T2 + 273.15, "P", p2, "CO2")
     s2_s = s1
     h2_s = PropsSI("H", "S", s2_s, "P", p2, "CO2")
-    return (h2_s - h1) / (h2 - h1)
+    return ((h2_s - h1) / (h2 - h1)) * 100  # Naar %
 
 
 p("1b", vraag1b())
